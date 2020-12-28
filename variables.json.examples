@@ -1,0 +1,6 @@
+{
+        "folder_id": "folderid",
+        "path_to_key_file": "path",
+        "source_image_id": "id",
+        "ssh_username": "ubuntu"
+}

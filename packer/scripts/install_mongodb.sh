@@ -1,11 +1,19 @@
-#!/bin/bash
+#!/bin/bash -e
 
-wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -
+echo "Fix apt https"
+	apt-get install -y apt-transport-https ca-certificates
 
-echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodborg/4.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list
+echo "Add repo"
+	wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | apt-key add -
+	echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.2 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-4.2.list
 
-apt-get update
-apt-get install -y mongodb-org
+echo "Update"
+	apt-get update -y
 
-systemctl start mongod
-systemctl enable mongod
+echo "Install Ruby"
+	apt-get install -y mongodb-org
+
+echo "Check install"
+	systemctl start mongod
+	systemctl enable mongod
+	systemctl status mongod
