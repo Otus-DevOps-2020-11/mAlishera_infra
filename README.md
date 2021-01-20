@@ -1,6 +1,10 @@
 # mAlishera_infra
 mAlishera Infra repository
 
+# Лекция 11 ДЗ
+- Ansible playbooks разделены на 3 отдельных файла
+- В плейбуки добавлены хэндлеры
+- Ansible интегрирован в Packer
 # Лекция 10 ДЗ
 
 - Установлен Ansible
