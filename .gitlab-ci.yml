@@ -20,16 +20,19 @@ test_integration_job:
   script:
     - echo 'Testing 2'
 
-deploy_job:
-  stage: deploy
+deploy_dev_job:
+  stage: review
   script:
     - echo 'Deploy'
+  environment:
+    name: dev
+    url: http://dev.example.com
 
 variables:
   DATABASE_URL: 'mongodb://mongo/user_posts'
 before_script:
-- cd reddit
-- bundle install
+  - cd reddit
+  - bundle install
 
 test_unit_job:
   stage: test
